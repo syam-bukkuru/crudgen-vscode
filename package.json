@@ -1,0 +1,38 @@
+{
+  "name": "crudgen",
+  "displayName": "CRUDGEN",
+  "description": "AI-powered full-stack CRUD code generator using Gemini",
+  "version": "0.0.1",
+  "publisher": "yourname",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:crudgen.helloWorld"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "crudgen.helloWorld",
+        "title": "CRUDGen: Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "node esbuild.config.cjs",
+    "package": "vsce package",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "esbuild": "^0.25.11",
+    "@types/vscode": "^1.105.0",
+    "@types/node": "^22.0.0",
+    "@vscode/vsce": "^3.6.2"
+  },
+  "dependencies": {
+    "open": "^10.2.0"
+  },
+  "license": "ISC",
+  "type": "commonjs"
+}
