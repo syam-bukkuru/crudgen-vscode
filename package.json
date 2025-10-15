@@ -7,28 +7,42 @@
   "engines": {
     "vscode": "^1.105.0"
   },
-  "categories": ["Other"],
-  "activationEvents": ["onCommand:crudgen.helloWorld"],
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:crudgen.helloWorld",
+    "onCommand:crudgen.generateCrud"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "crudgen.helloWorld",
         "title": "CRUDGen: Hello World"
+      },
+      {
+        "command": "crudgen.generateCrud",
+        "title": "CRUDGen: Generate CRUD"
       }
     ]
   },
   "scripts": {
     "build": "node esbuild.config.cjs",
+    "watch:tsc": "tsc --noEmit --watch",
+    "watch:esbuild": "node esbuild.config.cjs --watch",
+    "watch": "npm-run-all -p watch:tsc watch:esbuild",
     "package": "vsce package",
     "lint": "tsc --noEmit"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
-    "esbuild": "^0.25.11",
-    "@types/vscode": "^1.105.0",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^22.0.0",
-    "@vscode/vsce": "^3.6.2"
+    "@types/vscode": "^1.105.0",
+    "@vscode/vsce": "^3.6.2",
+    "esbuild": "^0.25.11",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "open": "^10.2.0"

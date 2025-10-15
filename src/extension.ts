@@ -1,13 +1,18 @@
 import * as vscode from 'vscode';
+import { generateCrud } from './commands/generateCrud';
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('CRUDGen extension is now active!');
+  console.log('CRUDGen extension is active.');
 
-  const disposable = vscode.commands.registerCommand('crudgen.helloWorld', async () => {
-    vscode.window.showInformationMessage('👋 Hello from CRUDGen! Ready to generate CRUD magic.');
+  const helloCmd = vscode.commands.registerCommand('crudgen.helloWorld', () => {
+    vscode.window.showInformationMessage('👋 Hello from CRUDGen!');
   });
 
-  context.subscriptions.push(disposable);
+  const crudCmd = vscode.commands.registerCommand('crudgen.generateCrud', async () => {
+    await generateCrud(context);
+  });
+
+  context.subscriptions.push(helloCmd, crudCmd);
 }
 
 export function deactivate() {}

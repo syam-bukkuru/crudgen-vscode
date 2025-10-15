@@ -9,7 +9,7 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["@types/vscode", "node"]
+    "types": ["@types/vscode", "node", "mocha"]
   },
   "include": ["src"]
 }
